@@ -17,4 +17,4 @@ $iconRegistry->registerIcon(
 );
 // Add backend preview hook
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']['accordion'] = 
-    LM\Accordion\Hooks\PageLayoutViewDrawItem::class;
+    TN\Accordion\Hooks\PageLayoutViewDrawItem::class;
