@@ -1,0 +1,31 @@
+{
+    "name": "typoniels/accordion",
+    "description": "",
+    "type": "typo3-cms-extension",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "typo3/cms-backend": "^8.7 || ^9.5 || ^10.4",
+        "typo3/cms-core": "^8.7 || ^9.5 || ^10.4",
+        "typo3/cms-extbase": "^8.7 || ^9.5 || ^10.4",
+        "typo3/cms-fluid": "^8.7 || ^9.5 || ^10.4",
+        "typo3/cms-frontend": "^8.7 || ^9.5 || ^10.4"
+    }
+    ,
+    "require-dev": {
+        "roave/security-advisories": "dev-master"
+    },
+    "replace": {
+        "accordion": "self.version",
+        "typo3-ter/accordion": "self.version"
+    },
+    "autoload": {
+        "psr-4": {
+            "TN\\Accordion\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "accordion"
+        }
+    }
+}

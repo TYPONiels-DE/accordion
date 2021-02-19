@@ -1,0 +1,37 @@
+<f:layout name="Default"/>
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+
+<f:section name="main">
+        <f:if condition="{processedRow.bodytext}">
+            <div class="row">
+                <div class="col-md-12">
+                    <f:format.raw>{processedRow.bodytext}</f:format.raw>
+                </div>
+            </div>
+        </f:if>
+        <f:if condition="{processedRow.tx_accordion_elements}">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 style="background: #1b1e21;color: white;display: block;padding: 5px 10px;margin-top: 5px;">
+                        Akkordeon-Elemente (
+                        <f:count subject="{processedRow.tx_accordion_elements}"/>
+                        )
+                    </h3>
+                </div>
+                <f:for each="{processedRow.tx_accordion_elements}" as="item">
+                    <div class="col-md-4">
+                        <div class="card" style="padding: 1.2rem;">
+                            <strong>{item.tx_accordion_title} ({item.uid})</strong><br>{f:if(condition:
+                            '{item.tx_accordion_teaser}',
+                            then: '{item.tx_accordion_teaser}', else: 'Es wurde kein Teasertext hinterlegt. Bitte
+                            ergänzen.')}<br>
+                            <f:render partial="Seo-UX-Check" arguments="{item: item}"/>
+                        </div>
+                    </div>
+                </f:for>
+            </div>
+        </f:if>
+</f:section>
+
+

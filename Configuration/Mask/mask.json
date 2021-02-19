@@ -1,0 +1,271 @@
+{
+    "pages": {
+        "elements": {
+            "1": {
+                "columns": [
+                    "tx_mask_downloads",
+                    "tx_mask_nav_description"
+                ],
+                "description": "dummy description",
+                "key": "1",
+                "label": "Basic",
+                "labels": [
+                    "Downloads",
+                    "Beschreibung f\u00fcr Nav-Cards"
+                ],
+                "shortLabel": "dummy shortitle"
+            }
+        },
+        "sql": {
+            "tx_mask_downloads": {
+                "pages": {
+                    "tx_mask_downloads": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_nav_description": {
+                "pages": {
+                    "tx_mask_nav_description": "mediumtext"
+                }
+            }
+        },
+        "tca": {
+            "tx_mask_downloads": {
+                "config": {
+                    "appearance": {
+                        "collapseAll": "1",
+                        "expandSingle": "1",
+                        "fileUploadAllowed": "1",
+                        "useSortable": "1"
+                    },
+                    "filter": [
+                        {
+                            "parameters": {
+                                "allowedFileExtensions": ""
+                            }
+                        }
+                    ],
+                    "maxitems": "",
+                    "minitems": ""
+                },
+                "exclude": "1",
+                "key": "downloads",
+                "l10n_mode": "",
+                "options": "file"
+            },
+            "tx_mask_nav_description": {
+                "config": {
+                    "cols": "",
+                    "default": "",
+                    "eval": "",
+                    "format": "",
+                    "max": "",
+                    "placeholder": "",
+                    "rows": "",
+                    "type": "text",
+                    "wrap": "off"
+                },
+                "exclude": "1",
+                "key": "nav_description",
+                "l10n_mode": ""
+            }
+        }
+    },
+    "sys_file_reference": {
+        "sql": {
+            "tx_mask_downloads": {
+                "sys_file_reference": {
+                    "tx_mask_downloads": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_media": {
+                "sys_file_reference": {
+                    "tx_mask_media": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            }
+        }
+    },
+    "tt_content": {
+        "elements": {
+            "accordion": {
+                "color": "#76d6ff",
+                "columns": [
+                    "header",
+                    "header_layout",
+                    "bodytext",
+                    "tx_mask_elements"
+                ],
+                "description": "",
+                "icon": "fa-list",
+                "key": "accordion",
+                "label": "Akkordion",
+                "labels": [
+                    "\u00dcberschrift",
+                    "\u00dcberschriften-Layout",
+                    "Text",
+                    "Elemente"
+                ],
+                "options": {
+                    "2": "rte",
+                    "6": "rte"
+                },
+                "shortLabel": ""
+            }
+        },
+        "sql": {
+            "tx_mask_elements": {
+                "tt_content": {
+                    "tx_mask_elements": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            }
+        },
+        "tca": {
+            "tx_mask_elements": {
+                "config": {
+                    "appearance": {
+                        "collapseAll": "1",
+                        "enabledControls": {
+                            "dragdrop": "1"
+                        },
+                        "levelLinksPosition": "top",
+                        "newRecordLinkTitle": ""
+                    },
+                    "foreign_field": "parentid",
+                    "foreign_sortby": "sorting",
+                    "foreign_table": "--inlinetable--",
+                    "foreign_table_field": "parenttable",
+                    "maxitems": "",
+                    "minitems": "",
+                    "type": "inline"
+                },
+                "exclude": "1",
+                "inlineIcon": "",
+                "inlineLabel": "",
+                "key": "elements",
+                "l10n_mode": ""
+            }
+        }
+    },
+    "tx_mask_elements": {
+        "sql": {
+            "tx_mask_bodytext": {
+                "tx_mask_elements": {
+                    "tx_mask_bodytext": "mediumtext"
+                }
+            },
+            "tx_mask_icon": {
+                "tx_mask_elements": {
+                    "tx_mask_icon": "tinytext"
+                }
+            },
+            "tx_mask_media": {
+                "tx_mask_elements": {
+                    "tx_mask_media": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_teaser": {
+                "tx_mask_elements": {
+                    "tx_mask_teaser": "mediumtext"
+                }
+            },
+            "tx_mask_title": {
+                "tx_mask_elements": {
+                    "tx_mask_title": "tinytext"
+                }
+            }
+        },
+        "tca": {
+            "tx_mask_bodytext": {
+                "config": {
+                    "cols": "",
+                    "default": "",
+                    "enableRichtext": "1",
+                    "eval": "",
+                    "max": "",
+                    "placeholder": "",
+                    "richtextConfiguration": "default",
+                    "rows": "",
+                    "type": "text"
+                },
+                "exclude": "1",
+                "inlineParent": "tx_mask_elements",
+                "key": "bodytext",
+                "l10n_mode": "",
+                "label": "Text",
+                "order": 6,
+                "rte": "1"
+            },
+            "tx_mask_icon": {
+                "config": {
+                    "default": "",
+                    "eval": "",
+                    "is_in": "",
+                    "max": "",
+                    "placeholder": "",
+                    "size": "",
+                    "type": "input"
+                },
+                "exclude": "1",
+                "inlineParent": "tx_mask_elements",
+                "key": "icon",
+                "l10n_mode": "",
+                "label": "Icon Klasse",
+                "order": 7
+            },
+            "tx_mask_media": {
+                "config": {
+                    "filter": [
+                        {
+                            "parameters": {
+                                "allowedFileExtensions": ""
+                            }
+                        }
+                    ],
+                    "maxitems": "",
+                    "minitems": ""
+                },
+                "exclude": "1",
+                "inlineParent": "tx_mask_elements",
+                "key": "media",
+                "l10n_mode": "",
+                "label": "Medien",
+                "options": "file",
+                "order": 8
+            },
+            "tx_mask_teaser": {
+                "config": {
+                    "cols": "",
+                    "default": "",
+                    "eval": "",
+                    "format": "",
+                    "max": "",
+                    "placeholder": "",
+                    "rows": "",
+                    "type": "text"
+                },
+                "exclude": "1",
+                "inlineParent": "tx_mask_elements",
+                "key": "teaser",
+                "l10n_mode": "",
+                "label": "Anrei\u00dfer",
+                "order": 5
+            },
+            "tx_mask_title": {
+                "config": {
+                    "default": "",
+                    "eval": "",
+                    "is_in": "",
+                    "max": "",
+                    "placeholder": "",
+                    "size": "",
+                    "type": "input"
+                },
+                "exclude": "1",
+                "inlineParent": "tx_mask_elements",
+                "key": "title",
+                "l10n_mode": "",
+                "label": "Titel",
+                "order": 4
+            }
+        }
+    }
+}

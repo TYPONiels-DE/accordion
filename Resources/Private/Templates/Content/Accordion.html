@@ -1,0 +1,129 @@
+<html xmlns:core="http://typo3.org/ns/TYPO3/CMS/FrontendEditing/ViewHelpers" xmlns:f="http://www.w3.org/1999/html"
+      data-namespace-typo3-fluid="true">
+
+<f:section name="Header">
+    <f:if condition="{data.header}">
+        <core:contentEditable table="tt_content" field="header" uid="{data.uid}">
+            {data.header}
+        </core:contentEditable>
+    </f:if>
+</f:section>
+
+<f:section name="AccordionElement">
+    <div id="acc-element-{item.data.uid}" class="card rounded-0">
+        <div class="card-header" role="tab" id="heading{item.data.uid}">
+            <div class="mb-0">
+                <a data-bs-toggle="collapse" data-bs-parent="#typoniels-{data.uid}" data-bs-target="#collapse-{item.data.uid}"
+                   aria-expanded="false" aria-controls="collapse-{item.data.uid}"
+                   class="{f:if(condition: '{itr.isFirst} && {data.collapsefirst} = true', then: '', else: 'collapsed')}">
+                    <f:if condition="{data.hideicon}">
+                        <f:then></f:then>
+                        <f:else><i class="accordion-lefticon {item.data.tx_accordion_icon} text-info" aria-hidden="true"></i></f:else>
+                    </f:if>
+                    <h3 class="accordion-itemtitle">
+                        <f:if condition="{item.data.tx_accordion_title}">
+                            <core:contentEditable table="tx_accordion_elements" field="tx_accordion_title" uid="{item.data.uid}">
+                                {item.data.tx_accordion_title}
+                            </core:contentEditable>
+                        </f:if>
+                    </h3>
+                    <f:if condition="{data.hideteaser} != 1">
+                        <f:then>
+                            <div class="d-none d-lg-block">
+                                <f:if condition="{item.data.tx_accordion_teaser}">
+                                    <f:then>
+                                        <f:format.crop maxCharacters="110" respectHtml="TRUE">
+                                            <f:format.html>{item.data.tx_accordion_teaser}</f:format.html>
+                                        </f:format.crop>
+                                    </f:then>
+                                    <f:else>
+                                        <f:format.crop maxCharacters="110" respectHtml="TRUE">
+                                            <f:format.html>{item.data.tx_accordion_bodytext}</f:format.html>
+                                        </f:format.crop>
+                                    </f:else>
+                                </f:if>
+                            </div>
+                        </f:then>
+                    </f:if>
+                </a>
+                <i class="accordion-righticon fa fa-angle-right d-none d-lg-block" style="{f:if(condition: '{data.hideteaser}', then: 'font-size: initial')}" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div id="collapse-{item.data.uid}" class="collapse {f:if(condition: '{itr.isFirst} && {data.collapsefirst} = true', then: 'show', else: '')}" aria-labelledby="heading{item.data.uid}" data-parent="#typoniels-{data.uid}">
+            <div class="card-block">
+                <f:comment><div class="bg-darktext-white"></div></f:comment>
+                <f:if condition="{item.data_tx_accordion_media}">
+                    <figure class="accordion-itemimage mb-4 d-sm-block d-none">
+                        <f:for each="{item.data_tx_accordion_media}" as="file">
+                            <f:image image="{file}" alt="{f:if(condition: '{file.alternative}', then: '{file.alternative}', else: '{item.data.tx_accordion_title}')}" title="{f:if(condition: '{file.title}', then: '{file.title}', else: '{item.data.tx_accordion_title}')}"
+                                     class="image-embed-item img-fluid" width="900" height="auto"/>
+                            <br/>
+                            <f:if condition="{file.description}"><p>{file.description}</p></f:if>
+                        </f:for>
+                    </figure>
+                </f:if>
+                <f:comment>
+                    <core:contentEditable table="tx_accordion_elements" field="tx_accordion_teaser" uid="{item.data.uid}">
+                        <f:format.html parseFuncTSPath="lib.parseFunc_RTE">{item.data.tx_accordion_teaser}</f:format.html>
+                    </core:contentEditable>
+                </f:comment>
+                <div class="p-3">
+                <f:if condition="{item.data.tx_accordion_bodytext}">
+                    <core:contentEditable table="tx_accordion_elements" field="tx_accordion_bodytext" uid="{item.data.uid}">
+                        <f:format.html parseFuncTSPath="lib.parseFunc_RTE">{item.data.tx_accordion_bodytext}</f:format.html>
+                    </core:contentEditable>
+                </f:if>
+                </div>
+            </div>
+        </div>
+    </div>
+</f:section>
+<div class="accordion border-0 ce-{data.layout}" id="typoniels-{data.uid}">
+    <f:if condition="{data.header_layout}">
+        <f:switch expression="{data.header_layout}">
+            <f:case value="1">
+                <h1 class="accordion-headline">
+                    <f:render section="Header" arguments="{_all}"/>
+                </h1>
+            </f:case>
+            <f:case value="2">
+                <h2 class="accordion-headline">
+                    <f:render section="Header" arguments="{_all}"/>
+                </h2>
+            </f:case>
+            <f:case value="3">
+                <h3 class="accordion-headline">
+                    <f:render section="Header" arguments="{_all}"/>
+                </h3>
+            </f:case>
+        </f:switch>
+    </f:if>
+    <f:if condition="{data.bodytext}"><div class="accordion-bodytext"><core:contentEditable table="tt_content" field="bodytext" uid="{data.uid}"><f:format.html parseFuncTSPath="lib.parseFunc_RTE">{data.bodytext}</f:format.html></core:contentEditable></div></f:if>
+
+        <f:if condition="{data.showsearch}">
+            <f:then>
+                <div class="accordion-actions d-flex flex-wrap w-100 p-3 bg-white">
+                    <div data-typoniels-accordion-search class="flex-fill">
+                        <input type="search" class="form-control rounded-0 border-0" id="accordion_search_bar" placeholder="{data.searchplaceholder}">
+                    </div>
+                </div>
+            </f:then>
+        </f:if>
+
+    <div id="accordion-{data.uid}" class="accordion mb-3" data-default="1" role="tablist" aria-multiselectable="false">
+        <f:if condition="{data_tx_accordion_elements}">
+            <f:for each="{data_tx_accordion_elements}" as="data_item" iteration="itr">
+                <f:render section="AccordionElement" arguments="{item: data_item, itr:itr, data: data}"/>
+            </f:for>
+        </f:if>
+    </div>
+    <style>
+        .accordion-headline {
+            font-family: BwModelicaSS01-Bold, sans-serif;
+        }
+        .accordion-bodytext p {
+            font-family: BwModelicaSS01-Medium, sans-serif;
+        }
+    </style>
+</div>
+</html>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2019-03-12T15:04:32+01:00" product-name="accordion">
+    <header/>
+    <body>
+      <trans-unit id="tx_accordion_elements" xml:space="preserve">
+        <source>tx_accordion_elements</source>
+      </trans-unit>
+      <trans-unit id="tx_accordion_elements.tx_accordion_bodytext" xml:space="preserve">
+        <source>Text</source>
+      </trans-unit>
+      <trans-unit id="tx_accordion_elements.tx_accordion_icon" xml:space="preserve">
+        <source>Icon Klasse</source>
+      </trans-unit>
+      <trans-unit id="tx_accordion_elements.tx_accordion_media" xml:space="preserve">
+        <source>Medien</source>
+      </trans-unit>
+      <trans-unit id="tx_accordion_elements.tx_accordion_teaser" xml:space="preserve">
+        <source>Anreißer</source>
+      </trans-unit>
+      <trans-unit id="tx_accordion_elements.tx_accordion_title" xml:space="preserve">
+        <source>Titel</source>
+      </trans-unit>
+      <trans-unit id="tt_content.tx_accordion_elements" xml:space="preserve">
+        <source>Elemente</source>
+      </trans-unit>
+      <trans-unit id="tt_content.CType.div._accordion_" xml:space="preserve">
+        <source>accordion</source>
+      </trans-unit>
+      <trans-unit id="tt_content.CType.accordion_accordion" xml:space="preserve">
+        <source>Akkordion</source>
+      </trans-unit>
+      <trans-unit id="pages.l10n_diffsource" xml:space="preserve">
+        <source>l10n_diffsource</source>
+      </trans-unit>
+      <trans-unit id="pages.l10n_source" xml:space="preserve">
+        <source>l10n_source</source>
+      </trans-unit>
+      <trans-unit id="pages.tx_impexp_origuid" xml:space="preserve">
+        <source>tx_impexp_origuid</source>
+      </trans-unit>
+      <trans-unit id="pages.tx_accordion_downloads" xml:space="preserve">
+        <source>Downloads</source>
+      </trans-unit>
+      <trans-unit id="pages.tx_accordion_nav_description" xml:space="preserve">
+        <source>Beschreibung für Nav-Cards</source>
+      </trans-unit>
+      <trans-unit id="tt_content.l10n_source" xml:space="preserve">
+        <source>l10n_source</source>
+      </trans-unit>
+      <trans-unit id="tt_content.l18n_diffsource" xml:space="preserve">
+        <source>l18n_diffsource</source>
+      </trans-unit>
+      <trans-unit id="tt_content.tx_impexp_origuid" xml:space="preserve">
+        <source>tx_impexp_origuid</source>
+      </trans-unit>
+      <trans-unit id="tt_content.CType.I.29" xml:space="preserve">
+        <source>Form</source>
+      </trans-unit>
+      <trans-unit id="tt_content.CType.I.31" xml:space="preserve">
+        <source>Akkordion</source>
+      </trans-unit>
+      <trans-unit id="tt_content.imagecols.I.0" xml:space="preserve">
+        <source>1</source>
+      </trans-unit>
+      <trans-unit id="tt_content.imagecols.I.1" xml:space="preserve">
+        <source>2</source>
+      </trans-unit>
+      <trans-unit id="tt_content.imagecols.I.2" xml:space="preserve">
+        <source>3</source>
+      </trans-unit>
+      <trans-unit id="tt_content.imagecols.I.3" xml:space="preserve">
+        <source>4</source>
+      </trans-unit>
+      <trans-unit id="tt_content.imagecols.I.4" xml:space="preserve">
+        <source>5</source>
+      </trans-unit>
+      <trans-unit id="tt_content.imagecols.I.5" xml:space="preserve">
+        <source>6</source>
+      </trans-unit>
+      <trans-unit id="tt_content.imagecols.I.6" xml:space="preserve">
+        <source>7</source>
+      </trans-unit>
+      <trans-unit id="tt_content.imagecols.I.7" xml:space="preserve">
+        <source>8</source>
+      </trans-unit>
+      <trans-unit id="tt_content.cols.I.1" xml:space="preserve">
+        <source>1</source>
+      </trans-unit>
+      <trans-unit id="tt_content.cols.I.2" xml:space="preserve">
+        <source>2</source>
+      </trans-unit>
+      <trans-unit id="tt_content.cols.I.3" xml:space="preserve">
+        <source>3</source>
+      </trans-unit>
+      <trans-unit id="tt_content.cols.I.4" xml:space="preserve">
+        <source>4</source>
+      </trans-unit>
+      <trans-unit id="tt_content.cols.I.5" xml:space="preserve">
+        <source>5</source>
+      </trans-unit>
+      <trans-unit id="tt_content.cols.I.6" xml:space="preserve">
+        <source>6</source>
+      </trans-unit>
+      <trans-unit id="tt_content.cols.I.7" xml:space="preserve">
+        <source>7</source>
+      </trans-unit>
+      <trans-unit id="tt_content.cols.I.8" xml:space="preserve">
+        <source>8</source>
+      </trans-unit>
+      <trans-unit id="tt_content.cols.I.9" xml:space="preserve">
+        <source>9</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

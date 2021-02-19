@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2019-03-12T15:04:32+01:00" product-name="accordion">
+    <header/>
+    <body>
+      <trans-unit id="wizards.newContentElement.accordion_title" xml:space="preserve">
+        <source>Akkordion</source>
+      </trans-unit>
+      <trans-unit id="wizards.newContentElement.accordion_description" xml:space="preserve">
+        <source></source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

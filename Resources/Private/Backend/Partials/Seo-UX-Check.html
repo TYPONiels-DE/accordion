@@ -1,0 +1,13 @@
+<span style="background: #eee; padding: 3px;display: inline-block; white-space: nowrap {v:condition.string.contains(then:' ;color:green;',else:' ;color:red;', haystack: '{item.tx_accordion_icon}', needle: 'fa-')}">Icon: {item.tx_accordion_icon} {v:condition.string.contains(then:'| <i
+        class="fa fa-bolt"></i> Sehr gut',else:'| <i
+        class="fa fa-exclamation-triangle"></i> Kein FA-Icon!', haystack: '{item.tx_accordion_icon}', needle: 'fa-')}</span>
+<br>
+<f:if condition="{item.tx_accordion_teaser}">
+    <span
+            style="background: #eee; padding: 3px;display: inline-block; white-space: nowrap {f:if(condition: '{v:count.words(string: item.tx_accordion_teaser)} <= 20',then:' ;color:red;',else:' ;color:green;')}">Teaser: <v:count.words
+            string="{item.tx_accordion_teaser}"/> Wörter {f:if(condition: '{v:count.words(string: item.tx_accordion_teaser)} <= 20',then:'| <i
+            class="fa fa-exclamation-triangle"></i> Zu kurz!',else:'| <i class="fa fa-bolt"></i> Sehr gut')}</span><br>
+</f:if><span
+        style="background: #eee; padding: 3px;display: inline-block; white-space: nowrap {f:if(condition: '{v:count.words(string: item.tx_accordion_bodytext)} <= 50',then:' ;color:red;',else:' ;color:green;')}">Bodytext: <v:count.words
+        string="{item.tx_accordion_bodytext} ++"/> Wörter {f:if(condition: '{v:count.words(string: item.tx_accordion_bodytext)} <= 50',then:'| <i
+        class="fa fa-exclamation-triangle"></i> Zu kurz!',else:'| <i class="fa fa-bolt"></i> Sehr gut')}</span>
