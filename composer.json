@@ -8,7 +8,8 @@
         "typo3/cms-core": "^8.7 || ^9.5 || ^10.4",
         "typo3/cms-extbase": "^8.7 || ^9.5 || ^10.4",
         "typo3/cms-fluid": "^8.7 || ^9.5 || ^10.4",
-        "typo3/cms-frontend": "^8.7 || ^9.5 || ^10.4"
+        "typo3/cms-frontend": "^8.7 || ^9.5 || ^10.4",
+        "typo3-ter/frontend-editing": "~"
     }
     ,
     "require-dev": {
