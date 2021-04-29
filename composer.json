@@ -1,6 +1,6 @@
 {
     "name": "typoniels/accordion",
-    "description": "",
+    "description": "A simple accordion content element for structuring large amounts of content, e.g. for the privacy policy. The Accordion is based on Irre records and offers a search function in addition to icons. In use at www.typoniels.de/datenschutzerklaerung",
     "type": "typo3-cms-extension",
     "license": "GPL-2.0-or-later",
     "require": {
