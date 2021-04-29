@@ -16,7 +16,6 @@
         "roave/security-advisories": "dev-master"
     },
     "replace": {
-        "accordion": "self.version",
         "typo3-ter/accordion": "self.version"
     },
     "autoload": {
