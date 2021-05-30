@@ -1,0 +1,45 @@
+image: "php:7.4"
+
+stages:
+  - build
+  - lint
+  - check
+  - deploy
+
+build_composer:
+  stage: build
+  image: "composer:latest"
+  script:
+    - composer install --no-interaction --verbose
+  artifacts:
+    untracked: true
+
+php-codesniffer:
+  image: "php:7.4"
+  stage: lint
+  artifacts:
+    untracked: true
+  dependencies:
+    - build_composer
+  script:
+    - .Build/bin/phpcs -n --extensions=php --standard=PSR12 ./Classes/
+
+phpmd:
+  image: "php:7.4"
+  stage: check
+  artifacts:
+    untracked: true
+  dependencies:
+    - build_composer
+  script:
+    - php .Build/bin/phpmd ./Classes/ ansi ./phpmd.xml
+
+phpstan:
+  image: "php:7.4"
+  stage: check
+  artifacts:
+    untracked: true
+  dependencies:
+    - build_composer
+  script:
+    - php -d memory_limit=512M .Build/bin/phpstan analyze ./Classes/ --level 8

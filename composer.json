@@ -10,10 +10,19 @@
         "typo3/cms-fluid": "^8.7 || ^9.5 || ^10.4",
         "typo3/cms-frontend": "^8.7 || ^9.5 || ^10.4",
         "friendsoftypo3/frontend-editing": "^2"
-    }
-    ,
+    },
+    "config": {
+        "vendor-dir": ".Build/vendor",
+        "bin-dir": ".Build/bin",
+        "platform": {
+            "php": "7.4"
+        }
+    },
     "require-dev": {
-        "roave/security-advisories": "dev-master"
+        "roave/security-advisories": "dev-master",
+        "phpmd/phpmd": "^2.10",
+        "phpstan/phpstan": "^0.12.88",
+        "squizlabs/php_codesniffer": "^3.6"
     },
     "replace": {
         "typo3-ter/accordion": "self.version"
@@ -25,6 +34,8 @@
     },
     "extra": {
         "typo3/cms": {
+            "cms-package-dir": "{$vendor-dir}/typo3/cms",
+            "web-dir": ".Build/public",
             "extension-key": "accordion"
         }
     }
