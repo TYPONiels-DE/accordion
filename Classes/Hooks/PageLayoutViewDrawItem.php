@@ -1,5 +1,4 @@
 <?php
-
 namespace TN\Accordion\Hooks;
 
 use TYPO3\CMS\Backend\Form\Exception;
@@ -13,20 +12,20 @@ use TYPO3\CMS\Fluid\View\StandaloneView;
 class PageLayoutViewDrawItem implements PageLayoutViewDrawItemHookInterface
 {
     /**
-     * @var array<string,string>
+     * @var array
      */
     protected $supportedContentTypes = array (
-    'accordion_accordion' => 'Accordion',
-    );
+  'accordion_accordion' => 'Accordion',
+);
 
     /**
      * @var StandaloneView
      */
     protected $view;
 
-    public function __construct(StandaloneView $view)
+    public function __construct(StandaloneView $view = null)
     {
-        $this->view = $view ?? GeneralUtility::makeInstance(StandaloneView::class);
+        $this->view = $view ?: GeneralUtility::makeInstance(StandaloneView::class);
     }
 
     /**
@@ -36,15 +35,14 @@ class PageLayoutViewDrawItem implements PageLayoutViewDrawItemHookInterface
      * @param bool $drawItem
      * @param string $headerContent
      * @param string $itemContent
-     * @param array<string> $row
-     * @return void
+     * @param array $row
      */
     public function preProcess(PageLayoutView &$parentObject, &$drawItem, &$headerContent, &$itemContent, array &$row)
     {
         if (!isset($this->supportedContentTypes[$row['CType']])) {
             return;
         }
-
+        
         $formDataGroup = GeneralUtility::makeInstance(TcaDatabaseRecord::class);
         $formDataCompiler = GeneralUtility::makeInstance(FormDataCompiler::class, $formDataGroup);
         $formDataCompilerInput = [
@@ -53,10 +51,9 @@ class PageLayoutViewDrawItem implements PageLayoutViewDrawItemHookInterface
             'vanillaUid' => (int)$row['uid'],
         ];
         try {
-            /** @phpstan-ignore-next-line */
             $result = $formDataCompiler->compile($formDataCompilerInput);
             $processedRow = $this->getProcessedData($result['databaseRow'], $result['processedTca']['columns']);
-
+            
             $this->configureView($result['pageTsConfig'], $row['CType']);
             $this->view->assignMultiple(
                 [
@@ -64,7 +61,7 @@ class PageLayoutViewDrawItem implements PageLayoutViewDrawItemHookInterface
                     'processedRow' => $processedRow,
                 ]
             );
-
+    
             $itemContent = $this->view->render();
         } catch (Exception $exception) {
             $message = $GLOBALS['BE_USER']->errorMsg;
@@ -74,15 +71,13 @@ class PageLayoutViewDrawItem implements PageLayoutViewDrawItemHookInterface
 
             $itemContent = $message;
         }
-
+        
         $drawItem = false;
     }
 
     /**
-     * @param array<mixed> $pageTsConfig
+     * @param array $pageTsConfig
      * @param string $contentType
-     * @return void
-     *
      */
     protected function configureView(array $pageTsConfig, $contentType)
     {
@@ -94,6 +89,7 @@ class PageLayoutViewDrawItem implements PageLayoutViewDrawItemHookInterface
         list($extensionKey) = explode('_', $contentType, 2);
         $extensionKey .= '.';
         if (!empty($previewConfiguration[$contentType])) {
+            GeneralUtility::deprecationLog('Setting the complete template path with filename is deprecated and will be removed in accordion_export 3.0');
             $templatePath = GeneralUtility::getFileAbsFileName($previewConfiguration[$contentType]);
             $this->view->setTemplatePathAndFilename($templatePath);
         } else {
@@ -120,9 +116,9 @@ class PageLayoutViewDrawItem implements PageLayoutViewDrawItemHookInterface
     }
 
     /**
-     * @param array<mixed> $databaseRow
-     * @param array<mixed> $processedTcaColumns
-     * @return array<mixed>
+     * @param array $databaseRow
+     * @param array $processedTcaColumns
+     * @return array
      */
     protected function getProcessedData(array $databaseRow, array $processedTcaColumns)
     {
@@ -135,14 +131,12 @@ class PageLayoutViewDrawItem implements PageLayoutViewDrawItemHookInterface
             foreach ($config['children'] as $child) {
                 if (!$child['isInlineChildExpanded']) {
                     $formDataGroup = GeneralUtility::makeInstance(TcaDatabaseRecord::class);
-                    /* @var FormDataCompiler $formDataCompiler */
                     $formDataCompiler = GeneralUtility::makeInstance(FormDataCompiler::class, $formDataGroup);
                     $formDataCompilerInput = [
                         'command' => 'edit',
                         'tableName' => $child['tableName'],
                         'vanillaUid' => $child['vanillaUid'],
                     ];
-                    /** @phpstan-ignore-next-line */
                     $child = $formDataCompiler->compile($formDataCompilerInput);
                 }
                 $processedRow[$field][] = $this->getProcessedData($child['databaseRow'], $child['processedTca']['columns']);
