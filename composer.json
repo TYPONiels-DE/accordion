@@ -38,5 +38,6 @@
             "web-dir": ".Build/public",
             "extension-key": "accordion"
         }
-    }
+    },
+    "version": "0.0.1"
 }
