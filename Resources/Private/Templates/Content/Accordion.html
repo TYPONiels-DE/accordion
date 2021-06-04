@@ -96,7 +96,7 @@
             </f:case>
         </f:switch>
     </f:if>
-    <f:if condition="{data.bodytext}"><div class="accordion-bodytext"><core:contentEditable table="tt_content" field="bodytext" uid="{data.uid}"><f:format.html parseFuncTSPath="lib.parseFunc_RTE">{data.bodytext}</f:format.html></core:contentEditable></div></f:if>
+    <f:if condition="{data.bodytext}"><div class="accordion-bodytext px-3"><core:contentEditable table="tt_content" field="bodytext" uid="{data.uid}"><f:format.html parseFuncTSPath="lib.parseFunc_RTE">{data.bodytext}</f:format.html></core:contentEditable></div></f:if>
 
         <f:if condition="{data.showsearch}">
             <f:then>
