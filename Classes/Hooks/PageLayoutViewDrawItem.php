@@ -102,7 +102,6 @@ class PageLayoutViewDrawItem implements PageLayoutViewDrawItemHookInterface
             $templatePath = GeneralUtility::getFileAbsFileName($previewConfiguration[$contentType]);
             $this->view->setTemplatePathAndFilename($templatePath);
         } else {
-
             if (!isset($this->view) && $this->view == null) {
                 $this->view = GeneralUtility::makeInstance(StandaloneView::class);
             }
