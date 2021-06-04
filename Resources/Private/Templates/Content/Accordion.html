@@ -67,13 +67,11 @@
                         <f:format.html parseFuncTSPath="lib.parseFunc_RTE">{item.data.tx_accordion_teaser}</f:format.html>
                     </core:contentEditable>
                 </f:comment>
-                <div class="p-3">
                 <f:if condition="{item.data.tx_accordion_bodytext}">
                     <core:contentEditable table="tx_accordion_elements" field="tx_accordion_bodytext" uid="{item.data.uid}">
                         <f:format.html parseFuncTSPath="lib.parseFunc_RTE">{item.data.tx_accordion_bodytext}</f:format.html>
                     </core:contentEditable>
                 </f:if>
-                </div>
             </div>
         </div>
     </div>
@@ -110,7 +108,7 @@
             </f:then>
         </f:if>
 
-    <div id="accordion-{data.uid}" class="accordion mb-3" data-default="1" role="tablist" aria-multiselectable="false">
+    <div id="accordion-{data.uid}" class="accordion" data-default="1" role="tablist" aria-multiselectable="false">
         <f:if condition="{data_tx_accordion_elements}">
             <f:for each="{data_tx_accordion_elements}" as="data_item" iteration="itr">
                 <f:render section="AccordionElement" arguments="{item: data_item, itr:itr, data: data}"/>
